@@ -4,8 +4,7 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:flutter/material.dart'; 
- 
+import 'package:flutter/material.dart';
 
 class HttpUtil {
   static final HttpUtil _instance = HttpUtil._internal();
@@ -36,19 +35,21 @@ class HttpUtil {
     CookieJar cookieJar = CookieJar();
     dio.interceptors.add(CookieManager(cookieJar));
 
-    dio.interceptors.add(InterceptorsWrapper(
-      onRequest: (options, handler) {
-        return handler.next(options);
-      },
-      onResponse: (response, handler) {
-        return handler.next(response);
-      },
-      onError: (DioError dioError, handler) {
-        Error error = createErrorEntity(dioError);
-        onError(error);
-        return handler.next(dioError);
-      },
-    ));
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          return handler.next(options);
+        },
+        onResponse: (response, handler) {
+          return handler.next(response);
+        },
+        onError: (DioError dioError, handler) {
+          Error error = createErrorEntity(dioError);
+          onError(error);
+          return handler.next(dioError);
+        },
+      ),
+    );
   }
   // * errors
   void onError(Error error) {
