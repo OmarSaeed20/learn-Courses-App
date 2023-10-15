@@ -5,7 +5,7 @@ class SmoothIndicator extends StatelessWidget {
     super.key,
     required this.count,
     required this.i,
-    this.color = AppColors.primary,
+    this.color = AppColors.primaryElement,
   });
 
   final int count;

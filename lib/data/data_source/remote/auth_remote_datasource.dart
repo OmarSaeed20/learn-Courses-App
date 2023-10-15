@@ -1,21 +1,62 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:equatable/equatable.dart';
 import 'package:learn/data/model/user_model/user_model.dart';
+import '../../../domain/usecase/sign_up_usecase.dart';
+import '../../../presentation/resources/app_constant.dart';
 import '/index.dart';
-
-import '../../network/dio/app_dio.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<UserModel> login({required String password, required String email});
+  Future<void> createUser({required SignUpParameter param});
 
   Future<List<UserEntity>> getUser();
 }
 
 class AuthRemoteDataSourceImp extends BaseAuthRemoteDataSource {
   @override
+  Future<void> createUser({required SignUpParameter param}) async {
+    debugPrint('Remote Sign up>>>>>>>>>>>>>>>>>>');
+    /*  try { */
+    var data = {
+      "first_name": "${param.name}Ah4ed",
+      "last_name": "${param.name}Ai1",
+      "username": param.name,
+      "email": "${param.email}@gmail.com",
+      "phone": "+01045412514",
+      "password": param.password,
+      "password_confirmation": param.password,
+      "gender": 0
+    };
+    final response = await HttpUtil().post(
+      ApiConstan.signUp,
+      data: data,
+      options: Options(headers: {
+        "Content-Type": "multipart/form-data",
+        "Accept": "application/json",
+        "lang": "en"
+      }),
+    );
+    debugPrint('Remote Sign up response>>>>>>>>>>>>>>>>>> $response');
+    if (response.statusCode == 200) {
+      debugPrint('Remote Sign up>>>>>>>>>>>>>>>>>> successsssss');
+      Right(response.data);
+    } else {
+      debugPrint('Remote Sign up>>>>>>>>>>>>>>>>>> error');
+      throw DioError(requestOptions: response.requestOptions);
+    }
+    /*}  on ApiFailure {
+      rethrow;
+    } catch (e) {
+      debugPrint('Remote Sign up>>>>>>>>>>>>>>>>>> error $e');
+
+      throw ApiFailure(e.toString(), 505);
+    } */
+  }
+
+  @override
   Future<UserModel> login(
       {required String password, required String email}) async {
-    Response response = await HttpUtil().post(
+    final response = await HttpUtil().post(
       "/user_login/",
       data: {'email': email, 'password': password},
     );
@@ -23,8 +64,9 @@ class AuthRemoteDataSourceImp extends BaseAuthRemoteDataSource {
       UserModel model = UserModel.fromJson(response.data);
       return model;
     } else {
-      throw ServerException(
-        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      throw ApiFailure(
+        response.statusMessage ?? "statusMessage unKnown error",
+        response.statusCode ?? 0,
       );
     }
   }
@@ -33,47 +75,4 @@ class AuthRemoteDataSourceImp extends BaseAuthRemoteDataSource {
   Future<List<UserEntity>> getUser() {
     throw UnimplementedError();
   }
-}
-
-class ServerException implements Exception {
-  final ErrorMessageModel errorMessageModel;
-
-  const ServerException({
-    required this.errorMessageModel,
-  });
-}
-
-class LocalDatabaseException implements Exception {
-  final String message;
-
-  const LocalDatabaseException({
-    required this.message,
-  });
-}
-
-class ErrorMessageModel extends Equatable {
-  final int statusCode;
-  final String statusMessage;
-  final bool success;
-
-  const ErrorMessageModel({
-    required this.statusCode,
-    required this.statusMessage,
-    required this.success,
-  });
-
-  factory ErrorMessageModel.fromJson(Map<String, dynamic> json) {
-    return ErrorMessageModel(
-      statusCode: json["status_code"],
-      statusMessage: json["status_message"],
-      success: json["success"],
-    );
-  }
-
-  @override
-  List<Object?> get props => [
-        statusCode,
-        statusMessage,
-        success,
-      ];
 }

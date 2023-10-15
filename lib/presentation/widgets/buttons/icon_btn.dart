@@ -22,7 +22,7 @@ class IconBt extends StatelessWidget {
     this.padding,
     this.iconSiz,
     this.iconColor = AppColors.white,
-    this.backgroundColor = AppColors.primary,
+    this.backgroundColor = AppColors.primaryElement,
     this.side = const BorderSide(width: 0, color: AppColors.transpa),
     this.borderRadius,
     this.widget,

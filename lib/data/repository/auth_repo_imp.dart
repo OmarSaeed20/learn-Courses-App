@@ -1,9 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:learn/data/model/user_model/user_model.dart'; 
+import 'package:learn/data/model/user_model/user_model.dart';
+import 'package:learn/domain/usecase/sign_up_usecase.dart';
 
-import '../data_source/remote/auth_remote_datasource.dart';
-import '../network/network_info.dart';
 import '/index.dart';
 
 class AuthenticationRepositoryImp implements AuthenticationRepository {
@@ -11,20 +10,15 @@ class AuthenticationRepositoryImp implements AuthenticationRepository {
 
   final NetworkInfo _networkInfo;
   AuthenticationRepositoryImp(this._remoteDataSource, this._networkInfo);
-/*   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
-
-  MoviesRepository(this.baseMovieRemoteDataSource);
-
   @override
-  Future<Either<Failure, List<Movie>>> getNowPlayingMovies() async {
-    final result = await baseMovieRemoteDataSource.getNowPlayingMovies();
+  ResultFuture<void> signUp(SignUpParameter parameters) async {
     try {
-      return Right(result);
-    } on ServerException catch (failure) {
-      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+      await _remoteDataSource.createUser(param: parameters);
+      return const Right(null);
+    } on Failure catch (e) {
+      return Left(ApiFailure.fromEx(e));
     }
   }
- */
 
   @override
   ResultFuture<UserModel> login(
@@ -36,26 +30,21 @@ class AuthenticationRepositoryImp implements AuthenticationRepository {
         debugPrint("Login Result is >>>>>>>>>>> $result");
         return Right(result);
       } on DioError catch (e) {
-        // return Left(HttpUtil().createErrorEntity(e));
         return Left(
-            ServerFailure("e.message ${e.message} -----\n e.error ${e.error}"));
+          ApiFailure(
+            "e.message ${e.message} -----\n e.error ${e.error}",
+            e.response!.statusCode!,
+          ),
+        );
       }
     } else {
-      return const Left(ServerFailure('No Intrenet Connection !!!! '));
+      return const Left(ApiFailure('No Intrenet Connection !!!! ', 500));
     }
   }
 
   @override
   ResultFuture<List<UserEntity>> getUSer() async {
     final result = await _remoteDataSource.getUser();
-    return Right(
-        result); /* try {
-      return Right(result);
-    } on Exception catch (failure) {
-      return Left(ApiFailure(
-            sCode:0,
-            msg:result.message ?? ResponseMessage.DEFAULT,
-          ));
-    } */
+    return Right(result);
   }
 }

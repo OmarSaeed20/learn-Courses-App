@@ -118,7 +118,7 @@ class WelcomeStateScreen extends State<WelcomeScreen> {
                   height: 50.h,
                   elv: 7.h,
                   margin: paddingOnly(top: 70, lf: 25, ri: 25, botm: 25.h),
-                  backColor: AppColors.primary,
+                  backColor: AppColors.primaryElement,
                   onTap: onTap,
                 ).animate().slideX(
                       curve: Curves.fastEaseInToSlowEaseOut,
@@ -131,13 +131,13 @@ class WelcomeStateScreen extends State<WelcomeScreen> {
       );
 
   _buildPage1() => const CustomPageView(
-        img: 'reading1',
+        img: AppImages.wellcom1,
         title: 'First See Learning',
         subTitle:
             'Forget about a for of paper all knowladge in one learning ,and share the knowledge with others.',
       ).animate().fadeIn(duration: const Duration(milliseconds: 2500));
   _buildPage2() => const CustomPageView(
-        img: 'boy',
+        img: AppImages.wellcom2,
         // img: 'speech-bubble',
         title: 'Connect With Everyone',
         subTitle:
@@ -145,7 +145,7 @@ class WelcomeStateScreen extends State<WelcomeScreen> {
       ).animate().fadeIn(duration: const Duration(milliseconds: 1000));
 
   _buildPage3() => const CustomPageView(
-        img: 'man',
+        img: AppImages.wellcom3,
         title: 'Always Fascinated Learing',
         subTitle:
             'Anywhere, anytime. the time is at your discration so study whereever you want.',

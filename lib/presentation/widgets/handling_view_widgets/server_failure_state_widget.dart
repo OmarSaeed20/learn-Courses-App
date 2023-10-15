@@ -6,7 +6,7 @@ class ServerFailurenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomBageStateWidget(
-      image: AppImages.e404,
+      image: 'AppImages.e404',
       title: "Server Failure",
       supTitle: "Can't conection to server",
     );

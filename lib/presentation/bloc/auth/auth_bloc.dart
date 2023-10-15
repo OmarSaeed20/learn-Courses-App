@@ -7,13 +7,13 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._loginUseCase) : super(const AuthState()) {
+  AuthBloc(this._loginUseCase ) : super(const AuthState()) {
     on<SwitchSignType>((event, emit) => _switch(emit, event));
     on<OnChangee>((event, emit) => _onChangee(emit, event));
     on<SignInEv>((event, emit) => _signIn(emit, event));
-    on<SignUp>((event, emit) => _signUp(emit, event));
   }
-  final UserLoginUseCase _loginUseCase;
+  final UserLoginUseCase _loginUseCase; 
+  
   void _switch(Emitter<AuthState> emit, SwitchSignType event) =>
       emit(AuthState(isSignUp: event.isSignUp));
 
@@ -52,9 +52,4 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  void _signUp(Emitter<AuthState> emit, SignUp event) {
-    if (state.isSignUp) {
-      emit(AuthState(isSignUp: state.isSignUp));
-    }
-  }
-}
+ }

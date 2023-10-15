@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
             navigatorObservers: [MyObserver()],
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: AppColors.primaryElement),
               useMaterial3: true,
             ),
             initialRoute: Routes.splash,

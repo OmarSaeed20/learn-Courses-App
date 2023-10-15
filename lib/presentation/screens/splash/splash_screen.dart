@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: paddingOnly(top: 200, botm: 10),
               child: Icon(
                 Icons.menu_book_sharp,
-                color: AppColors.primary,
+                color: AppColors.primaryElement,
                 size: 100.h,
               ),
             ),

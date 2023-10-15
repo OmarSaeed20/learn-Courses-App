@@ -68,7 +68,7 @@ class _SwitchWidgetState extends State<SwitchWidget>
                 boxShadow: [
                   BoxShadow(
                     color: isChecked
-                        ? AppColors.primary.withOpacity(0.6)
+                        ? AppColors.primaryElement.withOpacity(0.6)
                         : AppColors.red.withOpacity(0.6),
                     blurRadius: 15,
                     offset: const Offset(0, 4),

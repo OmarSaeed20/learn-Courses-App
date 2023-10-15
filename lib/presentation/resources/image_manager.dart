@@ -1,108 +1,31 @@
 class AppImages {
-  static const String _kPng = "assets/image-png/";
-  // static const String _kSvg = "assets/image-svg/";
-  static const String _lot = "assets/lottie/";
-  static const String _kIcon = "assets/icons/";
-  static const String _kReac = "assets/reaction/";
+  static const String _kPng = "assets/images/";  
 
   // icons
 
-  static const String homeIcon = "${_kIcon}home.png";
-
-  static const String locationIc = "${_kIcon}location.png";
-  static const String locationIc2 = "${_kIcon}location1.png";
-
-  static const String pinIc = "${_kIcon}pin.png";
-  static const String pin1Ic = "${_kIcon}pin1.png";
-  static const String pin2Ic = "${_kIcon}pin2.png";
-
-  static const String travIc = "${_kIcon}travel.png";
-
-  // facebook emoji
-
-  static const String angryIc = "${_kIcon}angry.png";
-  static const String loughtIc = "${_kIcon}happy-face.png";
-  static const String likeIc = "${_kIcon}like.png";
-  static const String heartIc = "${_kIcon}heart.png";
-  static const String wowIc = "${_kIcon}wow.png";
+  
+  static const String wellcom1 = "${_kPng}reading1.png";  
+  static const String wellcom2 = "${_kPng}boy.png";  
+  static const String wellcom3 = "${_kPng}man.png";  
+ 
+ 
 
   //  PNG
 
   static const String offer = "${_kPng}offer.jpeg";
-
-  static const String machine = "${_kPng}machine.jpg";
-  static const String machine1 = "${_kPng}machine1.png";
-
-  static const String logo = "${_kPng}Logo.png";
-
-  static const String reuse = "${_kPng}reuse.png";
-  static const String reuse1 = "${_kPng}reuse1.png";
-
-  static const String redeem = "${_kPng}redeem.png";
-  static const String redeem1 = "${_kPng}redeem1.pnd";
-  static const String redeem2 = "${_kPng}redeem2.png";
-  static const String redeem3 = "${_kPng}redeem3.jpg";
-  static const String redeem4 = "${_kPng}redeem23.png";
-
-  static const String backGra2 = "${_kPng}backgra.png";
-
-  static const String coin = "${_kPng}coin.png";
-  static const String coin1 = "${_kPng}coin1.png";
-  static const String coin2 = "${_kPng}coin2.png";
-  static const String coin3 = "${_kPng}coin3.png";
-
-  static const String world = "${_kPng}world4.jpg";
-
-  static const String recycle = "${_kPng}recycle.png";
-  static const String recycle1 = "${_kPng}recycle1.png";
-  static const String recycle2 = "${_kPng}recycle21.jpg";
-
-  static const String email1 = "${_kPng}email1.jpg";
-
-  static const String pError1 = "${_kPng}4041.png";
-  static const String pError2 = "${_kPng}4042.png";
-  static const String pError3 = "${_kPng}4043.png";
+ 
 
   /// lottie
   ///
-
-  // active
-  static const String loQrScaner2 = "${_lot}scan-qr2.json";
-  static const String loQrScaner3 = "${_lot}qr-scaner10.json";
-
+ 
   // actt
-
-  //loading
-
-  static const String loLoading = "${_lot}loading.json";
+ 
+ 
 
   // requset state image
 
-  //loading
-  static const String empty = "${_kPng}empty.png";
-
-  static const String eServer = "${_kPng}server.png";
-  static const String empty2 = "${_kPng}opps_internet.png";
-  static const String e5033 = "${_kPng}5033.png";
-  static const String e404 = "${_kPng}4043.png";
-  static const String e4042 = "${_kPng}4042.png";
-  static const String eNowifi2 = "${_kPng}no-wifi2.png";
-
-  //// reaction
-
-  static const String likePng = "${_kReac}ic_like.png";
-  static const String likefill = "${_kReac}ic_like_fill.png";
-  static const String likegif = "${_kReac}like.gif";
-  static const String hahapng = "${_kReac}haha2.png";
-  static const String hahaGif = "${_kReac}haha.gif";
-  static const String angrypng = "${_kReac}angry2.png";
-  static const String angryGif = "${_kReac}angry.gif";
-  static const String lovepng = "${_kReac}love2.png";
-  static const String loveGif = "${_kReac}love.gif";
-  static const String sadpng = "${_kReac}sad2.png";
-  static const String sadGif = "${_kReac}sad.gif";
-  static const String wowpng = "${_kReac}wow2.png";
-  static const String wowGif = "${_kReac}wow.gif";
+  
+ 
 
   // netWark-image
 

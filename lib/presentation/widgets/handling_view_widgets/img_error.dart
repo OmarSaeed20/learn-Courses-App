@@ -5,6 +5,6 @@ class ImgErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(AppImages.pError3, fit: BoxFit.contain);
+    return Image.asset("AppImages.pError3", fit: BoxFit.contain);
   }
 }

@@ -24,31 +24,35 @@ class _SignInFormBodyState extends State<SignInFormBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Builder(
-        builder: (context) {
-          AuthBloc bloc = BlocProvider.of(context);
-          return Column(
+    return BlocConsumer<LoginBloc, LoginState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        LoginBloc bloc = BlocProvider.of<LoginBloc>(context);
+        return Form(
+          key: _formKey,
+          child: Column(
             children: [
-              // textfield : email
-              textField(
-                "email",
+              CustomTextFailed(
+                tx: "email",
                 type: TextInputType.emailAddress,
+                prefixIcon: Icons.email_outlined,
                 controller: emailTextEditingCon,
-                onChanged: (value) => setState(() => _onChange(bloc)),
+                onChanged: (value) => bloc.add(EmailEvent(email: value)),
                 hintText: "example@mail.com",
               ),
-              // textfield : password
-              textField(
-                "password",
+              // CustomTextFailed(
+
+              CustomTextFailed(
+                tx: "password",
                 type: TextInputType.visiblePassword,
+                prefixIcon: Icons.lock_outline_rounded,
                 controller: passwordEditingCon,
-                onChanged: (value) => setState(() => _onChange(bloc)),
+                onChanged: (value) => bloc.add(PasswordEvent(password: value)),
                 hintText: "at least 8 characters",
-                obscureText: obscureText,
+                obscureText: state.show,
                 icon: true,
-                onTap: () => setState(() => obscureText = !obscureText),
+                onTap: () => bloc.add(ShowPasswordEvent(show: state.show)),
+                // onTap: () => setState(() => obscureText = !obscureText),
               ),
               // lines
               Padding(
@@ -68,19 +72,20 @@ class _SignInFormBodyState extends State<SignInFormBody> {
                 state: textWithIconState,
               ),
             ],
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 
   // Functions
-  void _onChange(AuthBloc bloc) {
-    bloc.add(OnChangee(
+  void _onChange(LoginBloc bloc) {
+    debugPrint('??????>>>>>>>>>>> void _onChange <<<<<<<<<<<,,,, ');
+    /*   bloc.add(OnChangee(
       formComplete: formComplete,
       emailCon: emailTextEditingCon,
       passwordCon: passwordEditingCon,
-    ));
+    )); */
     /*   // indicators logic
     int count = 0;
 
@@ -97,13 +102,13 @@ class _SignInFormBodyState extends State<SignInFormBody> {
     } */
   }
 
-  void onTapedSignIn(AuthBloc bloc) {
+  void onTapedSignIn(LoginBloc bloc) {
     switch (textWithIconState) {
       case ButtonState.idle:
         textWithIconState = ButtonState.loading;
 
         if (_formKey.currentState!.validate()) {
-          onSignUpTaped(bloc);
+          // onSignUpTaped(bloc);
         } else {
           // el formulario es invalido
           textWithIconState = ButtonState.fail;
@@ -125,7 +130,7 @@ class _SignInFormBodyState extends State<SignInFormBody> {
     });
   }
 
-  Future<void> onSignUpTaped(AuthBloc bloc) {
+  Future<void> onSignUpTaped(LoginBloc bloc) {
     return Future.delayed(const Duration(seconds: 0), () {
       // setState(() => textWithIconState = ButtonState.success);
       /* Future.delayed(const Duration(seconds: 3), () {
@@ -137,7 +142,7 @@ class _SignInFormBodyState extends State<SignInFormBody> {
 
         emailTextEditingCon.clear();
         passwordEditingCon.clear();
-        textWithIconState = bloc.state.reqState;
+        textWithIconState = bloc.state.buttonState;
         // textWithIconState = ButtonState.idle;
         _onChange(bloc);
       });

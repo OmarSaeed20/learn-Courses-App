@@ -55,10 +55,10 @@ Container _imgWellcom(String img) => Container(
       height: 345.w,
       width: 345.w,
       margin: paddingOnly(lf: 15, ri: 15, top: 25, botm: 15),
-      child: Image.asset(
-        "assets/images/$img.png",
-        fit: BoxFit.cover,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover),
       ),
+      // child: Image.asset(img, fit: BoxFit.cover),
     );
 
 Container _titleText(String s) => Container(

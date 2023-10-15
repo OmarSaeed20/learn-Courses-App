@@ -12,5 +12,5 @@ extension SizedBoxExtension on num {
 }
 
 extension ErrorImagee on NetworkImage {
-  ImageProvider getImageError() => const AssetImage(AppImages.pError3);
+  ImageProvider getImageError() => const AssetImage('AppImages.pError3');
 }

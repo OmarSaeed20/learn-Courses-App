@@ -5,7 +5,7 @@ class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   // use the navigator key to push routes
-  Future<dynamic> pushNamed(String routeName) =>
+  Future<dynamic> toNamed(String routeName) =>
       navigatorKey.currentState!.pushNamed(routeName);
 
   // use the navigator key to push routes
@@ -19,8 +19,7 @@ class NavigationService {
       );
   // use the navigator key to push routes
   Future<dynamic> popAndPushNamed(String routeName) =>
-      navigatorKey.currentState!
-          .popAndPushNamed(routeName); 
+      navigatorKey.currentState!.popAndPushNamed(routeName);
 
   Future<dynamic> pushAndRemoveUntil(String routeName, Widget routePage) =>
       navigatorKey.currentState!.pushAndRemoveUntil(

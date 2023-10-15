@@ -11,8 +11,7 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //app
 export 'presentation/bloc/observers/my_bloc_observer.dart';
-export 'app/my_app.dart';
-export 'data/network/error/failure.dart';
+export 'app/my_app.dart'; 
 export 'app/usecase/use_case.dart';
 export 'app/typedef/typedef.dart';
 
@@ -27,6 +26,16 @@ export 'app/services/navigation_service.dart';
 export 'app/extension/size_box.dart';
 export 'app/extension/padding.dart';
 export 'app/extension/divider.dart';
+
+/// data
+export 'data/data_source/remote/auth_remote_datasource.dart';
+export 'data/network/dio/app_dio.dart';
+export 'data/network/error/error_handeler.dart';
+export 'data/network/error/error_handeler2.dart';
+export 'data/network/error/failure.dart';
+export 'data/network/error/server_exception.dart';
+export 'data/network/network_info.dart';
+ 
 
 /// domain
 export 'domain/repository/authentication_repository.dart';
@@ -62,6 +71,8 @@ export 'presentation/resources/strings_manager.dart';
 export 'presentation/bloc/app_bloc_providers.dart';
 export 'presentation/bloc/observers/my_navigator_observer.dart';
 export 'presentation/bloc/exaple/learn_bloc.dart';
+export 'presentation/bloc/auth/login/login_bloc.dart';
+export 'presentation/bloc/auth/register/register_bloc.dart';
 export 'presentation/bloc/auth/auth_bloc.dart';
 export 'presentation/bloc/welcome/welcome_bloc.dart';
 

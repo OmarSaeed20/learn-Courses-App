@@ -5,7 +5,7 @@ class AppColors {
   static const Color whiteNice = Color(0xFFEAE8DC);
   static const Color whitegrey = Color(0xFFF3F6F8);
 
-  static const Color primary = Color(0xFF3F51B5);
+  static const Color primary  = Color(0xFF3F51B5);
 
   static const Color primar400 = Color(0xFF5C6BC0);
   static const Color primar300 = Color(0xFF7986CB);
@@ -26,8 +26,6 @@ class AppColors {
   static const Color offWhite = Color(0xFFFAF9F6);
   static const Color offWhite3 = Color(0xFFD4D4CE);
 
- 
-
   static const Color scafBG = Color(0xFFFFFFFF);
   static const Color contBG = Color(0xFFD9D9D9);
   static const Color contBG2 = Color(0xFFFAFAFA);
@@ -45,7 +43,7 @@ class AppColors {
   static const Color orangIcon = Color(0xFFE3751F);
   // 15% >>
   // static const Color orangIconLight = Color(0xFFE3751F);
- static const Color pointsColo = Color(0xFFFF6932); 
+  static const Color pointsColo = Color(0xFFFF6932);
 
   static const Color orang1 = Color(0xFFFF8832);
   static const Color orang2 = Color(0xFFF6A21E);
@@ -53,7 +51,7 @@ class AppColors {
 
   static const Color redOrang = Color(0xFFE55B13);
   static const Color redOrang1 = Color(0xFFFF2400);
-  
+
   static const Color redAccount = Color(0xFFFF0000);
   static const Color redAccountLight = Color(0xFFFBDCDC);
 
@@ -72,25 +70,31 @@ class AppColors {
   static const Color textGrayLight = Color(0xFFE0E0E0);
   static const Color textOrang = Color(0xFFE97864);
 
-    
   /// white background
   static const Color primaryBackground = Color.fromARGB(255, 255, 255, 255);
+
   /// grey background
-  static const Color primarySecondaryBackground = Color.fromARGB(255, 247, 247, 249);
+  static const Color primarySecondaryBackground =
+      Color.fromARGB(255, 247, 247, 249);
+
   /// main widget color blue
   static const Color primaryElement = Color.fromARGB(255, 61, 61, 216);
   /// main text color black
   static const Color primaryText = Color.fromARGB(255, 0, 0, 0);
   // video backgroun color
   static const Color primaryBg = Color.fromARGB(210, 32, 47, 62);
+
   /// main widget text color white
   static const Color primaryElementText = Color.fromARGB(255, 255, 255, 255);
   // main widget text color grey
-  static const Color primarySecondaryElementText = Color.fromARGB(255, 102, 102, 102);
+  static const Color primarySecondaryElementText =
+      Color.fromARGB(255, 102, 102, 102);
   // main widget third color grey
-  static const Color primaryThreeElementText = Color.fromARGB(255, 170, 170, 170);
+  static const Color primaryThreeElementText =
+      Color.fromARGB(255, 170, 170, 170);
 
-  static const Color primaryFourElementText = Color.fromARGB(255, 204, 204, 204);
+  static const Color primaryFourElementText =
+      Color.fromARGB(255, 204, 204, 204);
   //state color
   static const Color primaryElementStatus = Color.fromARGB(255, 88, 174, 127);
 

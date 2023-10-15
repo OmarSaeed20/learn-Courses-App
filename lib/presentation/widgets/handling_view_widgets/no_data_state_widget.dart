@@ -6,7 +6,7 @@ class NoDataStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomBageStateWidget(
-      image: AppImages.empty,
+      image: "AppImages.empty",
       isImage: true, 
       title: "Empty!!",
       supTitle: "no data founde",

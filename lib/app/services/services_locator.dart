@@ -1,10 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:learn/data/data_source/remote/auth_remote_datasource.dart';
 import 'package:learn/data/repository/auth_repo_imp.dart';
 
-import '../../data/network/dio/app_dio.dart';
-import '../../data/network/network_info.dart';
+import '../../domain/usecase/sign_up_usecase.dart';
 import '/index.dart';
 
 final sl = GetIt.instance;
@@ -17,11 +15,12 @@ class ServicesLocator {
     /// Bloc
     sl.registerFactory(() => WelcomeBloc());
     sl.registerFactory(() => AuthBloc(sl<UserLoginUseCase>()));
+    sl.registerFactory(() => RegisterBloc(sl<SignUpUseCase>()));
     sl.registerFactory(() => LearnBloc());
 
     /// Use Cases
-    // sl.registerLazySingleton(() => GetNowPlayingMoviesUseCase(sl()));
     sl.registerLazySingleton(() => UserLoginUseCase(sl()));
+    sl.registerLazySingleton(() => SignUpUseCase(sl()));
 
     /// Repository
     sl.registerLazySingleton<AuthenticationRepository>(
@@ -29,12 +28,6 @@ class ServicesLocator {
               sl<BaseAuthRemoteDataSource>(),
               sl<NetworkInfo>(),
             ));
-    /* 
-     instance.registerLazySingleton<Repository>(
-      () => RepositoryImpl(sl(), sl(), sl()));
-    sl.registerLazySingleton<BaseMoviesRepository>(
-        () => MoviesRepository(sl()));
- */
     // network info
     sl.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(InternetConnectionChecker()),
@@ -51,7 +44,5 @@ class ServicesLocator {
     sl.registerLazySingleton<BaseAuthRemoteDataSource>(
       () => AuthRemoteDataSourceImp(),
     );
-    // sl.registerLazySingleton<BaseMovieRemoteDataSource>(
-    //     () => MovieRemoteDataSource(sl<AppServiceClient>()));
   }
 }

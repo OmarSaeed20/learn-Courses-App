@@ -8,7 +8,7 @@ class LoadingStateWidget extends StatelessWidget {
     return const CustomBageStateWidget(
       isImage: false,
       isLoading: true,
-      lottie: AppImages.loLoading,
+      lottie: 'AppImages.loLoading',
       fitLot: BoxFit.contain,
       title: "Loading ...",
       supTitle: "please wait a second!",

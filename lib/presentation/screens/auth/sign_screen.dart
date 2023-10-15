@@ -40,23 +40,36 @@ class SignUpFormsState extends State<SignUpForms> {
             // button : Registrarse con otras cuentas
             facebookAndGoSign(context),
             //
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                choseSignType(
-                  "sign in",
-                  isSelct,
-                  () => setState(() => isSelct = true),
-                ),
-                choseSignType(
-                  "sign up",
-                  !isSelct,
-                  () => setState(() => isSelct = false),
-                ),
-              ],
+            BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        choseSignType(
+                          "sign in",
+                          isSelct,
+                          () => setState(() => isSelct = true),
+                        ),
+                        choseSignType(
+                          "sign up",
+                          !isSelct,
+                          () => setState(() => isSelct = false),
+                        ),
+                      ],
+                    ),
+                    if (isSelct)
+                      const SignInFormBody()
+                    else
+                      const SignUpFormBody()
+                          .animate()
+                          .shimmer(duration: const Duration(seconds: 2)),
+                    15.sH,
+                  ],
+                );
+              },
             ),
-            if (isSelct) const SignInFormBody() else const SignUpFormBody().animate().shimmer(duration: const Duration(seconds: 2)),
-            15.sH,
             // Divider
             Padding(
               padding: paddingSymme(horizontal: 20, vertical: 5),
@@ -71,7 +84,7 @@ class SignUpFormsState extends State<SignUpForms> {
                   textAlign: TextAlign.center,
                   style: styleNormal(
                     decoration: TextDecoration.underline,
-                    color: AppColors.primary,
+                    color: AppColors.primaryElement,
                   ),
                 ),
                 onTap: () {},
@@ -91,7 +104,7 @@ class SignUpFormsState extends State<SignUpForms> {
             alignment: Alignment.center,
             margin: paddingSymme(vertical: 5),
             decoration: BoxDecoration(
-              color: isSelcted ? AppColors.primary : AppColors.grey,
+              color: isSelcted ? AppColors.primaryElement : AppColors.grey,
               borderRadius: BorderRadius.circular(5.r),
             ),
             padding: paddingSymme(horizontal: 40, vertical: 11),

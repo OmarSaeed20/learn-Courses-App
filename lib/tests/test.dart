@@ -3,6 +3,7 @@
 // Courses: https://www.atomsbox.com/learn-flutter
 
 import 'package:flutter/material.dart';
+// ignore: unused_shown_name
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 
 class CopyAndPaste extends StatelessWidget {

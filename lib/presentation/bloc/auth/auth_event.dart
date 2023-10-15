@@ -44,6 +44,6 @@ class SignInEv extends AuthEvent {
   List<Object?> get props => [obscureText, textWithIconState, email, password];
 }
 
-class SignUp extends AuthEvent {}
+class SignUpEv extends AuthEvent {}
 
 class ForgetPassword extends AuthEvent {}

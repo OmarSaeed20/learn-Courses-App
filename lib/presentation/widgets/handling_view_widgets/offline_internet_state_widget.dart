@@ -6,7 +6,7 @@ class OfflineInterNetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomBageStateWidget(
-      image: AppImages.eNowifi2, 
+      image: 'AppImages.eNowifi2', 
       title: "Offline InterNet",
       supTitle: "Can't conection to server, chick your internet data",
     );

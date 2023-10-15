@@ -40,7 +40,7 @@ class BtnWidget extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               AppColors.primaryDeep,
-              AppColors.primary.withOpacity(0.8),
+              AppColors.primaryElement.withOpacity(0.8),
             ],
             begin: Alignment.centerLeft,
             end: Alignment.bottomRight,

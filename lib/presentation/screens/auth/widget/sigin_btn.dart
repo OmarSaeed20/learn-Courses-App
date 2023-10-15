@@ -28,7 +28,7 @@ class ButtonSignBtn extends StatelessWidget {
             ButtonState.idle: IconedButton(
               text: name,
               icon: const Icon(Icons.person, color: AppColors.white),
-              color: AppColors.primary,
+              color: AppColors.primaryElement,
             ),
             ButtonState.loading: IconedButton(
               text: "wait a minute",

@@ -32,8 +32,8 @@ class CustomBageStateWidget extends StatelessWidget {
                   preferredSize: Size(double.infinity, .2.h),
                   child: LinearProgressIndicator(
                     backgroundColor: AppColors.orang3.withOpacity(.5),
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(AppColors.primary),
+                    valueColor: const AlwaysStoppedAnimation<Color>(
+                        AppColors.primaryElement),
                   ),
                 )
               : const Center(),

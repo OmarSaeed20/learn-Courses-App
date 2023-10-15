@@ -207,7 +207,7 @@ class MyPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Color myColor = AppColors.primary;
+    Color myColor = AppColors.primaryElement;
     // Color myColor = const Color(0xff653ff4);
 
     Paint firstPaint = Paint();

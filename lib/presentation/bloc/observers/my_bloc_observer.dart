@@ -9,11 +9,11 @@ class MyBlocObserver extends BlocObserver {
     super.onEvent(bloc, event);
   } */
 
-  @override
+/*   @override
   void onTransition(Bloc bloc, Transition transition) {
     debugPrint('${bloc.runtimeType} : $transition');
     super.onTransition(bloc, transition);
-  }
+  } */
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
@@ -21,11 +21,11 @@ class MyBlocObserver extends BlocObserver {
     super.onError(bloc, error, stackTrace);
   }
 
-  @override
+  /*  @override
   void onChange(BlocBase bloc, Change change) {
     debugPrint('${bloc.runtimeType} : $change');
     super.onChange(bloc, change);
-  }
+  } */
 
   @override
   void onCreate(BlocBase bloc) {
